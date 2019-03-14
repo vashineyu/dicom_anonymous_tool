@@ -19,9 +19,9 @@ It will create a
 --patient_ids
 	-- parsed folder with dicom files
 
-2. Fast copy relative folders
-Because program will parse all files that can be scaned by DICOMDIR, irrelative folders will not need to dump for clients.
-Maintainer can open the `anonymous_mapping.csv` and change the flag of "select" (first column) from 0 -> 1. and run the `fast_movefolder.py`
+2. Fast copy relative folders  
+Because program will parse all files that can be scaned by DICOMDIR, irrelative folders will not need to dump for clients.  <br>
+Maintainer can open the `anonymous_mapping.csv` and change the flag of "select" (first column) from 0 -> 1. and run the `fast_movefolder.py` <br>
 <NOTE> dicom files can be viewed with imageJ. Maintainer should check required images of folders and mark them in the anonymous_mapping.csv.
 ```python
 python fast_movefolder.py --dicomdir_path PATH_TO_FOLDER_WITH_DICOMDIR
