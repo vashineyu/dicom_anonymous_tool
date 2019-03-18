@@ -144,7 +144,7 @@ if __name__ == "__main__":
     args = args.parse_args()
     print(args)
     
-    dicomdir_file = read_dicomdir(os.path.join(args.dicomdir_path+"DICOMDIR"))
+    dicomdir_file = read_dicomdir(os.path.join(args.dicomdir_path,"DICOMDIR"))
     file_object = Filehandler(filename=os.path.join(args.dicomdir_path, "anonymous_mapping.csv"))
     file_object.write_message("select,subject_id,dir_order,date,time,series_num,series_modality,series_description,n_images,origin_file_start,origin_file_end\n")
 
