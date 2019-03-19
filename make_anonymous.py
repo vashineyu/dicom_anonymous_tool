@@ -180,13 +180,18 @@ if __name__ == "__main__":
                     this_image_source, this_sop, this_syntax = parse_image(image)
                     # Read image, remove req fields, save to new_folder
                     t_file = os.path.join(series_path, "image"+str(i).zfill(5)+".dcm")
-                    process_image(origin_path=os.path.join(args.dicomdir_path,this_image_source),
-                                  target_path=t_file, 
-                                  rm_fileds_list=REMOVED_FIELDS)
-
-                    image_list.append(this_image_source)
-                this_image_source_start = image_list[0]
-                this_image_source_end = image_list[-1]
+                    try:
+                        process_image(origin_path=os.path.join(args.dicomdir_path,this_image_source),
+                                      target_path=t_file, 
+                                      rm_fileds_list=REMOVED_FIELDS)
+                        image_list.append(this_image_source)
+                    except:
+                        print("file %s cannot be read" % t_file)
+                if len(image_list) != 0:
+                    this_image_source_start = image_list[0]
+                    this_image_source_end = image_list[-1]
+                else:
+                    this_image_source_start = this_image_source_end = 0
 
                 this_info = "{},{},{},{},{},{},{},{},{},{},{}\n".format(str(0),this_pid, 
                                                       str(counter).zfill(4), 
